@@ -1,0 +1,24 @@
+{
+  "short_name": "BioCraft",
+  "name": "BioCraft: Cell Biology Sandbox",
+  "description": "Build, simulate, and edit living cells, DNA genetics & viruses in 3D sandbox!",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#030712",
+  "theme_color": "#06b6d4",
+  "display": "standalone",
+  "orientation": "portrait"
+}

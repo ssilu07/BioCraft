@@ -1,0 +1,6 @@
+{
+  "appId": "com.royals.biocraft",
+  "appName": "BioCraft",
+  "webDir": "dist",
+  "bundledWebRuntime": false
+}
