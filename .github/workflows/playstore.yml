@@ -155,7 +155,7 @@ jobs:
         with:
           serviceAccountJsonPlainText: ${{ secrets.PLAY_STORE_JSON_KEY || secrets.PLAYSTORE_SERVICE_ACCOUNT_JSON }}
           packageName: com.royals.biocraft
-          releaseFiles: android/app/build/outputs/bundle/release/app-release.aab
+          releaseFiles: android/app/build/outputs/bundle/release/*.aab
           track: ${{ inputs.track || 'internal' }}
           status: ${{ inputs.status || 'completed' }}
           changesNotSentForReview: true
