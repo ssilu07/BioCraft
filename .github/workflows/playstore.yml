@@ -79,6 +79,9 @@ jobs:
       - name: Build Web Application
         run: npm run build
 
+      - name: Grant Execute Permission to Gradle Wrapper
+        run: chmod +x android/gradlew
+
       - name: Sync Capacitor Android
         run: npx cap sync android
 
@@ -117,9 +120,6 @@ jobs:
             echo "::error::Neither KEYSTORE_BASE64 nor ANDROID_KEYSTORE_BASE64 secret is defined in GitHub Secrets! Please add KEYSTORE_BASE64 in Repository Settings -> Secrets and variables -> Actions."
             exit 1
           fi
-
-      - name: Grant Execute Permission to Gradle Wrapper
-        run: chmod +x android/gradlew
 
       - name: Build Android App Bundle (AAB) & APK
         env:
