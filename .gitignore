@@ -11,6 +11,13 @@ dist-ssr/
 # Keystores & sensitive signing keys
 *.keystore
 *.jks
+*.p8
+*.pepk
+*.json-key
+service-account*.json
+playstore-*.json
+keystore-base64.txt
+google-services.json
 
 # Binaries & packages
 *.apk

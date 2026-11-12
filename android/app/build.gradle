@@ -3,12 +3,20 @@ apply plugin: 'com.android.application'
 android {
     namespace = "com.royals.biocraft"
     compileSdk = rootProject.ext.compileSdkVersion
+
+    def appVersionCode = project.hasProperty('versionCode') ? 
+        project.property('versionCode').toInteger() : 
+        (System.getenv("BUILD_NUMBER") ? System.getenv("BUILD_NUMBER").toInteger() : 2)
+    def appVersionName = project.hasProperty('versionName') ? 
+        project.property('versionName').toString() : 
+        (System.getenv("BUILD_NAME") ?: "1.0.1")
+
     defaultConfig {
         applicationId "com.royals.biocraft"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        versionCode appVersionCode
+        versionName appVersionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         aaptOptions {
              // Files and dirs to omit from the packaged assets dir, modified to accommodate modern web apps.
@@ -18,10 +26,10 @@ android {
     }
     signingConfigs {
         release {
-            storeFile file('biocraft.jks')
-            storePassword '8750257510'
-            keyAlias 'key0'
-            keyPassword '8750257510'
+            storeFile file(System.getenv("KEYSTORE_FILE") ?: 'biocraft.jks')
+            storePassword System.getenv("KEYSTORE_PASSWORD") ?: '8750257510'
+            keyAlias System.getenv("KEY_ALIAS") ?: 'key0'
+            keyPassword System.getenv("KEY_PASSWORD") ?: '8750257510'
         }
     }
     buildFeatures {
