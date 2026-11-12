@@ -56,7 +56,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: 'npm'
 
       - name: Set up Java JDK (Temurin 21)
@@ -79,8 +79,10 @@ jobs:
       - name: Build Web Application
         run: npm run build
 
-      - name: Grant Execute Permission to Gradle Wrapper
-        run: chmod +x android/gradlew
+      - name: Ensure Android Assets Directory & Permissions
+        run: |
+          mkdir -p android/app/src/main/assets/public
+          chmod +x android/gradlew
 
       - name: Sync Capacitor Android
         run: npx cap sync android
